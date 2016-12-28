@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AWSProject.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AWSProject_seachUniversitiesWS_SearchUniversities" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:14668/SearchUniversities.asmx</Value>
+    </Setting>
+    <Setting Name="AWSProject_updateUniversity_updateUniversityProfile" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:14668/updateUniversityProfile.asmx</Value>
+    </Setting>
+    <Setting Name="AWSProject_pay_Payment" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:14668/Payment.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

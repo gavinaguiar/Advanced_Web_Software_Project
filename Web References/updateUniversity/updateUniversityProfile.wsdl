@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="updateUnivProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="uid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="univName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="emailId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateUnivProfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateUnivProfileResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addCourses">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="uid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="courses" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="addCoursesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="addCoursesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="updateUnivProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:updateUnivProfile" />
+  </wsdl:message>
+  <wsdl:message name="updateUnivProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:updateUnivProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="addCoursesSoapIn">
+    <wsdl:part name="parameters" element="tns:addCourses" />
+  </wsdl:message>
+  <wsdl:message name="addCoursesSoapOut">
+    <wsdl:part name="parameters" element="tns:addCoursesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="updateUniversityProfileSoap">
+    <wsdl:operation name="updateUnivProfile">
+      <wsdl:input message="tns:updateUnivProfileSoapIn" />
+      <wsdl:output message="tns:updateUnivProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addCourses">
+      <wsdl:input message="tns:addCoursesSoapIn" />
+      <wsdl:output message="tns:addCoursesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="updateUniversityProfileSoap" type="tns:updateUniversityProfileSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="updateUnivProfile">
+      <soap:operation soapAction="http://tempuri.org/updateUnivProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCourses">
+      <soap:operation soapAction="http://tempuri.org/addCourses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="updateUniversityProfileSoap12" type="tns:updateUniversityProfileSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="updateUnivProfile">
+      <soap12:operation soapAction="http://tempuri.org/updateUnivProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCourses">
+      <soap12:operation soapAction="http://tempuri.org/addCourses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="updateUniversityProfile">
+    <wsdl:port name="updateUniversityProfileSoap" binding="tns:updateUniversityProfileSoap">
+      <soap:address location="http://localhost:14668/updateUniversityProfile.asmx" />
+    </wsdl:port>
+    <wsdl:port name="updateUniversityProfileSoap12" binding="tns:updateUniversityProfileSoap12">
+      <soap12:address location="http://localhost:14668/updateUniversityProfile.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
